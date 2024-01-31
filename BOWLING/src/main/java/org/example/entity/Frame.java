@@ -25,7 +25,7 @@ public class Frame {
         int keelFall = launch.generateLaunch(keel);
         keel -= keelFall;
         score += keelFall;
-        if (keel == 0 && round != 10) {
+        if (keel == 0 ) {
             count = 2;
         } else {
             count++;
