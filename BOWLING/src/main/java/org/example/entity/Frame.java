@@ -7,8 +7,6 @@ public class Frame {
     private int count = 0;
     private int keel = 10;
 
-    private boolean allKeelFallen = false;
-
 
     public Frame(Launch launch, int round) {
         this.launch = launch;
@@ -25,7 +23,7 @@ public class Frame {
         int keelFall = launch.generateLaunch(keel);
         keel -= keelFall;
         score += keelFall;
-        if (keel == 0 ) {
+        if (keel == 0) {
             count = 2;
         } else {
             count++;
@@ -34,7 +32,7 @@ public class Frame {
     }
 
     private void throwFinal() {
-        if (!allKeelFallen && count == 2)
+        if (score < 10 && count == 2)
             throw new BowlingException();
         if (count == 3)
             throw new BowlingException();
@@ -44,7 +42,6 @@ public class Frame {
         count++;
         if (keel == 0) {
             keel = 10;
-            allKeelFallen = true;
         }
     }
 
